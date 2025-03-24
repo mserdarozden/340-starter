@@ -13,6 +13,8 @@ const static = require("./routes/static");
 const baseController = require("./controllers/baseController");
 const inventoryRoute = require("./routes/inventoryRoute");
 const utilities = require("./utilities/");
+const errorHandlingTestController = require("./controllers/errorHandlingTestController"); // Import errorTestController
+
 
 /* ***********************
  * View Engine and Templates
@@ -31,6 +33,9 @@ app.get("/", utilities.handleErrors(baseController.buildHome));
 
 // Favicon Route
 app.get("/favicon.ico", (req, res) => res.status(204).end());
+
+// Error Handling Test Route
+app.get("/error", utilities.handleErrors(errorHandlingTestController.buildError));
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
