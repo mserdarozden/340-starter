@@ -35,12 +35,12 @@ header {
 .site-name a {
   font-size: 50px;
   font-weight: bold;
-  color: #222;
+  color: black;
   text-decoration: none;
 }
 .account a {
   font-size: 14px;
-  color: #555;
+  color: black;
   text-decoration: none;
 }
 .account a:hover {
@@ -82,7 +82,7 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #555;
   border-radius: 5px;
-  color: #ffd700; /* Gold color */
+  color: lightskyblue; /* Gold color */
 }
 
 h1 {
@@ -252,7 +252,7 @@ img {
 
 .namePrice h2 a {
   text-decoration: none;
-  color: #333;
+  color: black;
   font-weight: bold;
 }
 
@@ -291,13 +291,13 @@ img {
 .detail-container h3 {
   margin-top: 0;
   font-size: 1.5em;
-  color: #333;
+  color: black;
 }
 
 .detail-container p {
   margin: 8px 0;
   font-size: 1.1em;
-  color: #444;
+  color: black;
 }
 
 /* Error message styling */
