@@ -57,5 +57,43 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+/* **************************************
+* Build the vehicle view HTML
+* ************************************ */
+Util.buildInventoryItemView = async function(vehicle){
+  let item = ""
+  if(vehicle.length > 0){
+    const v = vehicle[0] // Access the first object in the array
+    item += '<div class="item-container">'
+    item += '<img src="' + v.inv_image 
+      + '" alt="Image of ' + v.inv_make + ' ' + v.inv_model 
+      + ' on CSE Motors" />'
+    item += '<div class="detail-container">'
+    item += '<h3>Mechanical Special Details</h3>'
+    item += '<p><strong>Price:</strong> $' 
+      + new Intl.NumberFormat('en-US').format(v.inv_price) + '</p>'
+    item += '<p><strong>Year:</strong> ' + v.inv_year + '</p>'
+    item += '<p><strong>Description:</strong>' + v.inv_description + '</p>'
+    item += '<p><strong>Miles:</strong> ' + new Intl.NumberFormat('en-US').format(v.inv_miles) + '</p>'
+    item += '<p><strong>Color:</strong> ' + v.inv_color + '</p>'
+    item += '</div>'
+    item += '</div>'
+  } else { 
+    item += '<p class="notice">Sorry, no matching vehicles could be found.</p>'
+  }
+  return item
+}
+
+/**
+ * ***************************************************
+ * Middleware For Handling Errors
+ * Wrap other function in this for
+ * General Error Handling
+ * Unit 3, Activities
+ * ***************************************************
+ */
+Util.handleErrors = fn => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next);
+
 module.exports = Util
 
