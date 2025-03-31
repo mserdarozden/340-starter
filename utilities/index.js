@@ -84,6 +84,21 @@ Util.buildInventoryItemView = async function(vehicle){
   return item
 }
 
+/* **************************************
+* Build the menagement view HTML
+* ************************************ */
+Util.buildMenagementView = async function(){
+  let item = "";
+
+  // Add links for "Add New Classification" and "Add New Inventory"
+  item += '<div class="management-links">';
+  item += '<a href="/classification/add" class="btn">Add New Classification</a>';
+  item += '<a href="/inventory/add" class="btn">Add New Inventory</a>';
+  item += '</div>';
+ 
+  return item
+}
+
 /**
  * ***************************************************
  * Middleware For Handling Errors

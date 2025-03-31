@@ -43,4 +43,19 @@ invCont.buildByInventoryId = async function (req, res, next) {
   });
 };
 
+/* ***************************
+ *  Build menagement view
+ * ************************** */
+invCont.buildMenagement = async function (req, res, next) {
+  console.log("buildMenagement");
+
+  const menagement = await utilities.buildMenagementView();
+  let nav = await utilities.getNav();
+  res.render("./inventory/menagement", {
+    title: "Inventory Menagement", 
+    nav,
+    menagement,
+  });
+};
+
 module.exports = invCont;
