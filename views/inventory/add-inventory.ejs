@@ -17,7 +17,7 @@
 <div class="form-container">
   <div class="add-inventory-container">
     <form id="addInventoryContainer" action="/inv/add-inventory" method="post">
-      <label for="invClassification">Classification:</label>
+      <label for="classificationId">Classification:</label>
       <%- classification %>
       
       <label for="invMake">Maker:</label>
@@ -46,8 +46,7 @@
         id="invYear"
         name="inv_year"
         required
-        min="1900"
-        max="2100"
+        pattern="^(19|20)\d{2}$"
         title="Year must be a number between 1900 and 2100."
         value="<%= locals.inv_year %>"
       />
@@ -60,8 +59,7 @@
         id="invPrice"
         name="inv_price"
         required
-        min="0"
-        step="0.01"
+        pattern="^(19|20)\d{2}$"
         title="Price must be a positive number."
         value="<%= locals.inv_price %>"
       />
@@ -71,8 +69,7 @@
         id="invMiles"
         name="inv_miles"
         required
-        min="0"
-        step="0.01"
+        pattern="^(19|20)\d{2}$"
         title="Price must be a positive number."
         value="<%= locals.inv_miles %>"
       />
