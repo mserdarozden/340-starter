@@ -120,5 +120,54 @@ invCont.buildAddInventory = async function (req, res, next) {
   });
 };
 
+/* ****************************************
+ *  Process Adding Inventory
+ * *************************************** */
+invCont.addInventory = async function (req, res) {
+  let nav = await utilities.getNav();
+  const classification = await utilities.getClassificationDropdown();
+  const table = await utilities.buildMenagementView();
+
+  const {
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id,
+  } = req.body;
+
+
+  const regResult = await invModel.addInventoryItem(
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id
+  );
+
+  console.log(regResult);
+  if (regResult) {
+    req.flash("notice", `Congratulations, added inventory item ${inv_make}.`);
+    res.status(201).render("./inventory/menagement", {
+      title: "Inventory Menagement",
+      nav,
+      table,
+    });
+  } else {
+    req.flash("notice", "Sorry, the process failed.");
+    res.status(501).render("./inventory/add-inventory", {
+      title: "Add Inventory",
+      nav,
+      errors,
+      classification,
+    });
+  }
+};
 
 module.exports = invCont;

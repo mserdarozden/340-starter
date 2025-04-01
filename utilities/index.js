@@ -104,7 +104,7 @@ Util.buildMenagementView = async function(){
  * ************************************ */
 Util.getClassificationDropdown = async function () {
   let data = await invModel.getClassifications(); // Fetch classifications from the database
-  let dropdown = '<select id="classification_id" name="classification_id" required>';
+  let dropdown = '<select id="classificationId" name="classification_id" required>';
   dropdown += '<option value="">Select a Classification</option>'; // Default option
 
   data.rows.forEach((row) => {
