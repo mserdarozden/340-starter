@@ -37,7 +37,7 @@ invCont.buildByInventoryId = async function (req, res, next) {
   const brand = data[0].inv_make;
   const model = data[0].inv_model;
   res.render("./inventory/item", {
-    title: brand + ' ' + model ,
+    title: brand + " " + model,
     nav,
     item,
   });
@@ -49,13 +49,60 @@ invCont.buildByInventoryId = async function (req, res, next) {
 invCont.buildMenagement = async function (req, res, next) {
   console.log("buildMenagement");
 
-  const menagement = await utilities.buildMenagementView();
+  const table = await utilities.buildMenagementView();
   let nav = await utilities.getNav();
   res.render("./inventory/menagement", {
-    title: "Inventory Menagement", 
+    title: "Inventory Menagement",
     nav,
-    menagement,
+    table,
   });
+};
+
+/* ***************************
+ *  Deliver add classification view
+ * ************************** */
+invCont.buildAddClassification = async function (req, res, next) {
+  console.log("buildAddClassification");
+
+  let nav = await utilities.getNav();
+  res.render("./inventory/add-classification", {
+    title: "Add Classification",
+    nav,
+    errors: null,
+  });
+};
+
+/* ****************************************
+ *  Process Adding Classification
+ * *************************************** */
+invCont.addClassification = async function (req, res) {
+  let nav = await utilities.getNav();
+  const table = await utilities.buildMenagementView();
+
+  const { classification_name } = req.body;
+  console.log("classification_name:", classification_name);
+
+  const regResult = await invModel.addClassification(classification_name);
+
+  if (regResult) {
+    req.flash(
+      "notice",
+      `Congratulations, added classification ${classification_name}.`
+    );
+    nav = await utilities.getNav();
+    res.status(201).render("./inventory/menagement", {
+      title: "Inventory Menagement",
+      nav,
+      table,
+    });
+  } else {
+    req.flash("notice", "Sorry, the process failed.");
+    res.status(501).render("./inventory/add-classification", {
+      title: "Add Classification",
+      nav,
+      errors,
+    });
+  }
 };
 
 module.exports = invCont;

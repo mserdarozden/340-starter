@@ -92,7 +92,7 @@ Util.buildMenagementView = async function(){
 
   // Add links for "Add New Classification" and "Add New Inventory"
   item += '<div class="management-links">';
-  item += '<a href="/classification/add" class="btn">Add New Classification</a>';
+  item += '<a href="/inv/add-classification" class="btn">Add New Classification</a>';
   item += '<a href="/inventory/add" class="btn">Add New Inventory</a>';
   item += '</div>';
  

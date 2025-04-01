@@ -1,10 +1,12 @@
-const pool = require("../database/")
+const pool = require("../database/");
 
 /* ***************************
  *  Get all classification data
  * ************************** */
-async function getClassifications(){
-  return await pool.query("SELECT * FROM public.classification ORDER BY classification_name")
+async function getClassifications() {
+  return await pool.query(
+    "SELECT * FROM public.classification ORDER BY classification_name"
+  );
 }
 
 /* ***************************
@@ -18,11 +20,11 @@ async function getInventoryByClassificationId(classification_id) {
       ON i.classification_id = c.classification_id 
       WHERE i.classification_id = $1`,
       [classification_id]
-    )
+    );
     //console.log(data.rows)
-    return data.rows
+    return data.rows;
   } catch (error) {
-    console.error("getclassificationsbyid error " + error)
+    console.error("getclassificationsbyid error " + error);
   }
 }
 
@@ -35,12 +37,30 @@ async function getInventoryItemByInvId(inv_id) {
       `SELECT * FROM public.inventory 
       WHERE inv_id = $1`,
       [inv_id]
-    )
+    );
     //console.log(data.rows)
-    return data.rows
+    return data.rows;
   } catch (error) {
-    console.error("getInventorybyid error " + error)
+    console.error("getInventorybyid error " + error);
   }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getInventoryItemByInvId};
+/* *****************************
+ *   Add new classification
+ * *************************** */
+async function addClassification(classification_name) {
+  try {
+    const sql =
+      "INSERT INTO classification (classification_name) VALUES ($1) RETURNING *";
+    return await pool.query(sql, [classification_name]);
+  } catch (error) {
+    return error.message;
+  }
+}
+
+module.exports = {
+  getClassifications,
+  getInventoryByClassificationId,
+  getInventoryItemByInvId,
+  addClassification,
+};

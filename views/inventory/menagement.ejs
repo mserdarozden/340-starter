@@ -1,7 +1,7 @@
 <% if (title) { %>
-<h1><%= title %></h1>
-<% } else { res.redirect('/') } %> 
+<h1 class="form-header"><%= title %></h1>
+<% } else { res.redirect('/') } %>
 
 <div class="message-container"><%- messages() %></div>
 
-<%- menagement %>
+<%- table %>

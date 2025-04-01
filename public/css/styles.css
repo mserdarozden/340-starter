@@ -4,7 +4,7 @@
 }
 
 .background {
-  background: url('/images/site/small_check.jpg') no-repeat center center/cover;
+  background: url("/images/site/small_check.jpg") no-repeat center center/cover;
   min-height: 100vh;
   position: absolute;
   top: 0;
@@ -13,16 +13,13 @@
 }
 
 .wrapper {
-
   background: rgba(255, 255, 255, 1); /* Semi-transparent background */
   margin: 20px 40px;
 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   min-width: 400px;
-
 }
-
 
 /* Header */
 header {
@@ -80,7 +77,6 @@ nav ul li a {
 
 /* Hover effects */
 nav ul li a:hover {
-
   border-radius: 5px;
   color: lightskyblue; /* Gold color */
 }
@@ -96,12 +92,11 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 /* Hero Image */
 img {
-  width: 750px; 
+  width: 750px;
 }
 
 .delorean-container {
@@ -151,11 +146,13 @@ img {
   margin: 20px 20px;
 }
 
-.upgrades, .reviews {
+.upgrades,
+.reviews {
   width: 48%;
 }
 
-.upgrades h2, .reviews h2 {
+.upgrades h2,
+.reviews h2 {
   font-size: 20px;
 }
 
@@ -323,24 +320,26 @@ img {
 }
 
 .login-container,
-.register-container {
+.register-container,
+.add-classification-container {
   background-color: #123458;
   padding: 1rem 2rem;
   border-radius: 15px;
   width: 320px;
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-
 }
 
 .login-container form,
-.register-container form {
+.register-container form,
+.add-classification-container form {
   display: flex;
   flex-direction: column;
 }
 
 .login-container label,
-.register-container label {
+.register-container label,
+.add-classification-container label {
   font-weight: bold;
   text-align: left;
   margin-top: 1rem;
@@ -351,7 +350,8 @@ img {
 .login-container input[type="password"],
 .register-container input[type="email"],
 .register-container input[type="password"],
-  .register-container input[type="text"] {
+.register-container input[type="text"],
+.add-classification-container input[type="text"] {
   padding: 0.6rem;
   margin-top: 0.3rem;
   border: none;
@@ -369,7 +369,8 @@ img {
 }
 
 .login-container button,
-.register-container button {
+.register-container button,
+.add-classification-container button {
   margin-top: 1.5rem;
   padding: 0.6rem;
   background-color: #add8e6;
@@ -383,7 +384,8 @@ img {
 }
 
 .login-container button:hover,
-.register-container button:hover {
+.register-container button:hover,
+.add-classification-container button:hover {
   background-color: #dde8f0;
 }
 
@@ -424,7 +426,6 @@ img {
   }
 
   nav ul {
- 
   }
 
   nav li {
@@ -435,7 +436,8 @@ img {
     flex-direction: column;
   }
 
-  .upgrades, .reviews {
+  .upgrades,
+  .reviews {
     width: 100%;
   }
 
@@ -445,9 +447,8 @@ img {
 
   .delorean-container h2 {
     font-size: 14px;
-
   }
-  
+
   .delorean-container p {
     font-size: 12px;
   }
@@ -455,13 +456,9 @@ img {
   .btn {
     padding: 5px 8px;
     margin-top: 10px;
-
   }
 
   .item-container {
     flex-direction: column;
   }
 }
-
-
-
