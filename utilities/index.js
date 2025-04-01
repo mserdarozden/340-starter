@@ -93,11 +93,28 @@ Util.buildMenagementView = async function(){
   // Add links for "Add New Classification" and "Add New Inventory"
   item += '<div class="management-links">';
   item += '<a href="/inv/add-classification" class="btn">Add New Classification</a>';
-  item += '<a href="/inventory/add" class="btn">Add New Inventory</a>';
+  item += '<a href="/inv/add-inventory" class="btn">Add New Inventory</a>';
   item += '</div>';
  
   return item
 }
+
+/* **************************************
+ * Build the classification dropdown list
+ * ************************************ */
+Util.getClassificationDropdown = async function () {
+  let data = await invModel.getClassifications(); // Fetch classifications from the database
+  let dropdown = '<select id="classification_id" name="classification_id" required>';
+  dropdown += '<option value="">Select a Classification</option>'; // Default option
+
+  data.rows.forEach((row) => {
+    dropdown += `<option value="${row.classification_id}">${row.classification_name}</option>`;
+  });
+
+  dropdown += '</select>';
+ 
+  return dropdown;
+};
 
 /**
  * ***************************************************

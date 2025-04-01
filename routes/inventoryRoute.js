@@ -34,4 +34,17 @@ router.post(
   utilities.handleErrors(invController.addClassification)
 );
 
+router.get(
+  "/add-inventory",
+  utilities.handleErrors(invController.buildAddInventory)
+);
+
+// Process the adding classification data
+router.post(
+  "/add-inventory",
+  //classificationValidate.classificationRules(),
+  //classificationValidate.checkClassificationData,
+  utilities.handleErrors(invController.addInventory)
+);
+
 module.exports = router;

@@ -1,0 +1,85 @@
+<% if (title) { %>
+<h1 class="form-header"><%= title %></h1>
+<% } else { res.redirect('/') } %>
+
+<div class="message-container">
+  <% if (errors && errors.array().length > 0) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <div class="notice"><%- messages() %></div>
+  <% } %>
+</div>
+
+<div class="form-container">
+  <div class="add-inventory-container">
+    <form id="addInventoryContainer" action="/inv/add-inventory" method="post">
+      <label for="invClassification">Classification:</label>
+      <%- classification %>
+      
+      <label for="invMake">Maker:</label>
+      <input
+        type="text"
+        id="invMake"
+        name="inv_make"
+        required
+        pattern="^[a-zA-Z0-9]+$"
+        title="Maker name must not contain spaces or special characters. Only letters and numbers are allowed."
+      />
+      <label for="invModel">Model:</label>
+      <input
+        type="text"
+        id="invModel"
+        name="inv_model"
+        required
+        pattern="^[a-zA-Z0-9]+$"
+        title="Model name must not contain spaces or special characters. Only letters and numbers are allowed."
+      />
+      <label for="invYear">Year:</label>
+      <input
+        type="text"
+        id="invYear"
+        name="inv_year"
+        required
+        min="1900"
+        max="2100"
+        title="Year must be a number between 1900 and 2100."
+      />
+      <label for="invDescription">Description:</label>
+      <input type="text" id="invDescription" name="inv_description" required />
+      <label for="invPrice">Price:</label>
+      <input
+        type="text"
+        id="invPrice"
+        name="inv_price"
+        required
+        min="0"
+        step="0.01"
+        title="Price must be a positive number."
+      />
+      <label for="invMiles">Miles:</label>
+      <input
+        type="text"
+        id="invMiles"
+        name="inv_miles"
+        required
+        min="0"
+        step="0.01"
+        title="Price must be a positive number."
+      />
+      <label for="invColor">Color:</label>
+      <input
+        type="text"
+        id="invColor"
+        name="inv_color"
+        required
+        pattern="^[a-zA-Z]+$"
+        title="Color must only contain alphabetic characters (e.g., Red, Blue)."
+      />
+      <button type="submit">Add Inventory</button>
+    </form>
+  </div>
+</div>

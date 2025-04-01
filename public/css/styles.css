@@ -321,7 +321,8 @@ img {
 
 .login-container,
 .register-container,
-.add-classification-container {
+.add-classification-container,
+.add-inventory-container {
   background-color: #123458;
   padding: 1rem 2rem;
   border-radius: 15px;
@@ -332,14 +333,16 @@ img {
 
 .login-container form,
 .register-container form,
-.add-classification-container form {
+.add-classification-container form,
+.add-inventory-container form {
   display: flex;
   flex-direction: column;
 }
 
 .login-container label,
 .register-container label,
-.add-classification-container label {
+.add-classification-container label,
+.add-inventory-container label {
   font-weight: bold;
   text-align: left;
   margin-top: 1rem;
@@ -351,7 +354,9 @@ img {
 .register-container input[type="email"],
 .register-container input[type="password"],
 .register-container input[type="text"],
-.add-classification-container input[type="text"] {
+.add-classification-container input[type="text"],
+.add-inventory-container input[type="text"],
+.add-inventory-container select {
   padding: 0.6rem;
   margin-top: 0.3rem;
   border: none;
@@ -362,6 +367,11 @@ img {
   color: #000000;
 }
 
+.add-inventory-container select:focus {
+  outline: none;
+  border: 2px solid #123458; /* Highlight border on focus */
+}
+
 .register-container p {
   color: white;
   text-align: left;
@@ -370,7 +380,8 @@ img {
 
 .login-container button,
 .register-container button,
-.add-classification-container button {
+.add-classification-container button,
+.add-inventory-container button {
   margin-top: 1.5rem;
   padding: 0.6rem;
   background-color: #add8e6;
@@ -385,7 +396,8 @@ img {
 
 .login-container button:hover,
 .register-container button:hover,
-.add-classification-container button:hover {
+.add-classification-container button:hover,
+.add-inventory-container button:hover {
   background-color: #dde8f0;
 }
 
