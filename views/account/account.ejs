@@ -1,0 +1,17 @@
+<% if (title) { %>
+    <h1 class="form-header"><%= title %></h1>
+    <% } else { res.redirect('/') } %>
+    
+    <div class="message-container">
+      <% if (errors && errors.array().length > 0) { %>
+      <ul class="notice">
+        <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+      <% } else { %>
+      <div class="notice"><%- messages() %></div>
+      <% } %>
+    </div>
+
+    
