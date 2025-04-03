@@ -407,6 +407,10 @@ img {
   color: white;
 }
 
+.add-inventory-container h2,
+.add-inventory-container p {
+  color: white;
+}
 .login-container a {
   color: #ffffff;
   text-decoration: underline;
@@ -429,6 +433,65 @@ img {
   list-style: none; /* Removes bullet points */
   padding: 0; /* Removes default padding */
   margin: 0; /* Removes default margin */
+}
+
+/* Inventory Menagement View Styling */
+.management-links {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the links horizontally */
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.management-links .btn:hover {
+  background-color: #0a2a4d; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Table Styling */
+.table-container {
+  background-color: #123458; /* Dark blue background */
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto; /* Center the table on the page */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+  color: white; /* White text color */
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse; /* Remove gaps between table cells */
+}
+
+.table-container th,
+.table-container td {
+  padding: 0.8rem 1rem; /* Add padding inside cells */
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid #ffffff; /* Add a border between rows */
+}
+
+.table-container th {
+  font-weight: bold;
+  background-color: #0a2a4d; /* Slightly darker blue for the header */
+  color: white;
+}
+
+.table-container tr:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Add a subtle hover effect */
+}
+
+.table-container td a {
+  color: #add8e6; /* Light blue for links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.table-container td a:hover {
+  color: #ffffff; /* Change link color on hover */
+  text-decoration: underline;
 }
 
 /* Responsive Design */

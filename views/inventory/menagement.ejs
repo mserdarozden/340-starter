@@ -5,3 +5,24 @@
 <div class="message-container"><%- messages() %></div>
 
 <%- table %>
+
+<div class="form-container">
+  <div class="add-inventory-container">
+    <h2 class="form-header">Manage Inventory</h2>
+    <p>Select a classification from the list</p>
+    <form id="addInventoryContainer" action="/inv/add-inventory" method="post">
+      <label for="classificationId">Classification:</label>
+      <%- classification %>
+    </form>
+  </div>
+</div>
+
+<div class="table-container">
+  <table id="inventoryDisplay"></table>
+</div>
+
+
+<noscript>JavaScript must be enabled to use this page.</noscript>
+
+<script src="../../js/inventory.js"></script>
+

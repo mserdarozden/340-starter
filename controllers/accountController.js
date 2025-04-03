@@ -10,7 +10,6 @@ require("dotenv").config()
 *  Deliver login view
 * *************************************** */
 async function buildLogin(req, res, next) {
-  console.log("accountController.buildLogin")
   let nav = await utilities.getNav()
   res.render("./account/login", {
     title: "Login",
@@ -127,7 +126,7 @@ async function accountLogin(req, res) {
 /* ****************************************
 *  Deliver account view
 * *************************************** */
-async function buildAccountView(req, res, next) {
+async function buildMenagement(req, res, next) {
   let nav = await utilities.getNav()
   res.render("account/account", {
     title: "My Account",
@@ -137,4 +136,4 @@ async function buildAccountView(req, res, next) {
 }
 
 
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountView }
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildMenagement }

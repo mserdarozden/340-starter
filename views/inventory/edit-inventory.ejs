@@ -16,10 +16,10 @@
 
 <div class="form-container">
   <div class="add-inventory-container">
-    <form id="addInventoryContainer" action="/inv/add-inventory" method="post">
+    <form id="addInventoryContainer" action="/inv/update" method="post">
       <label for="classificationId">Classification:</label>
       <%- classification %>
-      
+
       <label for="invMake">Maker:</label>
       <input
         type="text"
@@ -51,15 +51,38 @@
         value="<%= locals.inv_year %>"
       />
       <label for="invDescription">Description:</label>
-      <input type="text" id="invDescription" name="inv_description" required value="<%= locals.inv_description %>"/>
-      
+      <input
+        type="text"
+        id="invDescription"
+        name="inv_description"
+        required
+        value="<%= locals.inv_description %>"
+      />
+
+      <label for="invThumbnail">Thumbnail:</label>
+      <input
+        type="text"
+        id="invThumbnail"
+        name="inv_thumbnail"
+        required
+        value="<%= locals.inv_thumbnail %>"
+      />
+
+      <label for="invImage">Image:</label>
+      <input
+        type="text"
+        id="invImage"
+        name="inv_image"
+        required
+        value="<%= locals.inv_image %>"
+      />
+
       <label for="invPrice">Price:</label>
       <input
         type="text"
         id="invPrice"
         name="inv_price"
         required
-
         value="<%= locals.inv_price %>"
       />
       <label for="invMiles">Miles:</label>
@@ -68,8 +91,6 @@
         id="invMiles"
         name="inv_miles"
         required
-   
-
         value="<%= locals.inv_miles %>"
       />
       <label for="invColor">Color:</label>
@@ -82,7 +103,11 @@
         title="Color must only contain alphabetic characters (e.g., Red, Blue)."
         value="<%= locals.inv_color %>"
       />
-      <button type="submit">Add Inventory</button>
+      <input type="hidden" name="inv_id"
+<% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+<% } %>>
+
+      <button type="submit">Update Vehicle</button>
     </form>
   </div>
 </div>
