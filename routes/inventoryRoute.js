@@ -65,6 +65,17 @@ router.post("/update/",
   utilities.handleErrors(invController.updateInventory)
 )
 
+// Route to delete item by inventory id
+router.get(
+  "/delete/:inventoryId",
+  utilities.handleErrors(invController.buildDeleteInventory)
+);
 
+// Process the deleting classification data
+router.post("/delete/", 
+  // inventoryValidate.inventoryRules(),
+  // inventoryValidate.checkUpdateData,
+  utilities.handleErrors(invController.deleteInventory)
+)
 
 module.exports = router;
