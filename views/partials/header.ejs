@@ -4,10 +4,14 @@
   </span>
   <div class="account">
     <% if (locals.loggedin) { %>
-      <a href="/account/menagement" title="Welcome message">Welcome Basic</a>
-      <a href="/account/logout" title="Click to log out">Logout</a>
+      <div class="account-links">
+        <a href="/account/menagement" title="Welcome message">Welcome Basic</a>
+        <a href="/account/logout" title="Click to log out">Logout</a>
+      </div>
     <% } else { %>
-      <a href="/account/login" title="Click to log in">My Account</a>
+      <div class="account-links">
+        <a href="/account/login" title="Click to log in">My Account</a>
+      </div>
     <% } %>
   </div>
 </header>

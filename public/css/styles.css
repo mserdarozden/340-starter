@@ -44,6 +44,28 @@ header {
   color: #000;
 }
 
+/* Account Links Styling */
+.account-links {
+  display: flex;
+  gap: 15px; /* Space between links */
+  align-items: center;
+}
+
+.account-links a {
+  font-size: 14px;
+  color: #123458; /* Dark blue color */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px; /* Add padding for clickable area */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.account-links a:hover {
+  background-color: #123458; /* Dark blue background on hover */
+  color: white; /* White text on hover */
+}
+
 /* Navigation container */
 nav {
   background-color: #123458;
