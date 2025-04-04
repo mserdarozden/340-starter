@@ -31,4 +31,15 @@ router.post(
   utilities.handleErrors(accountController.accountLogin)
   
 )
+  // Route to build update view
+  router.get("/update", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountUpdate));
+
+  // Process the updating account
+router.post(
+  "/update",
+  //regValidate.registationRules(),
+  //regValidate.checkRegData,
+  utilities.handleErrors(accountController.updateAccount)
+)
+  
 module.exports = router;

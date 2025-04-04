@@ -494,6 +494,10 @@ img {
   text-decoration: underline;
 }
 
+.centered-heading-container {
+  text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 580px) {
   .wrapper {

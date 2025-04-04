@@ -1,17 +1,42 @@
 <% if (title) { %>
-    <h1 class="form-header"><%= title %></h1>
-    <% } else { res.redirect('/') } %>
-    
-    <div class="message-container">
-      <% if (errors && errors.array().length > 0) { %>
-      <ul class="notice">
-        <% errors.array().forEach(error => { %>
-        <li><%= error.msg %></li>
-        <% }) %>
-      </ul>
-      <% } else { %>
-      <div class="notice"><%- messages() %></div>
-      <% } %>
-    </div>
+<h1 class="form-header"><%= title %></h1>
+<% } else { res.redirect('/') } %>
 
-    
+<div class="message-container">
+  <% if (errors && errors.array().length > 0) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <div class="notice"><%- messages() %></div>
+  <% } %>
+</div>
+
+<% if (locals.account_type === "Admin" ||
+locals.account_type === "Employee") { %>
+<div class="centered-heading-container">
+  <h2>Welcome <%= locals.first_name %></h2>
+  <h3>Inventory Management</h3>
+</div>
+<div class="management-links">
+  <a href="/inv/" class="btn" title="Access Inventory Management"
+    >Go to Inventory Management</a
+  >
+</div>
+<% } else if (locals.accountData.account_type ===
+"Client") { %>
+<div class="centered-heading-container">
+    <h2>Welcome <%= locals.first_name %></h2>
+</div>
+<% } %>
+
+<div class="centered-heading-container">
+  <h3>Account Management</h3>
+</div>
+<div class="management-links">
+  <a href="/account/update" class="btn" title="Update account information"
+    >Update account information</a
+  >
+</div>

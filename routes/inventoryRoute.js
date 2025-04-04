@@ -19,7 +19,7 @@ router.get(
 );
 
 // Route to build menagement view
-router.get("/", utilities.handleErrors(invController.buildMenagement));
+router.get("/", utilities.checkAdminAccess, utilities.handleErrors(invController.buildMenagement));
 
 // Route to build add classification view
 router.get(
