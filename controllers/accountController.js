@@ -115,19 +115,23 @@ async function accountLogin(req, res) {
       req.flash("notice", `Congratulations, you\'re logged in.`);
       return res.redirect("/account/");
     } else {
-      req.flash(
-        "message notice",
-        "Please check your credentials and try again."
-      );
+      req.flash("notice", "Incorrect password. Please try again.");
       res.status(400).render("account/login", {
         title: "Login",
         nav,
         errors: null,
-        account_email,
+        email,
       });
     }
   } catch (error) {
-    throw new Error("Access Forbidden");
+    console.error(`Error during login: ${error.message}`);
+    req.flash("notice", "An unexpected error occurred. Please try again.");
+    res.status(500).render("account/login", {
+      title: "Login",
+      nav,
+      errors: null,
+      email,
+    });
   }
 }
 
@@ -269,6 +273,15 @@ async function updatePassword(req, res, next) {
   }
 }
 
+/* ****************************************
+ *  Process logout request
+ * *************************************** */
+async function logout(req, res) {
+  res.clearCookie("jwt"); // Clear the JWT token from cookies
+  req.flash("notice", "You have been logged out."); // Optional: Flash a logout message
+  res.redirect("/"); // Redirect to the home page or login page
+}
+
 module.exports = {
   buildLogin,
   buildRegister,
@@ -278,4 +291,5 @@ module.exports = {
   buildAccountUpdate,
   updateAccount,
   updatePassword,
+  logout
 };

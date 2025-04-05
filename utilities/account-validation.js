@@ -163,7 +163,7 @@ validate.checkUpdateData = async (req, res, next) => {
 };
 
 /* ******************************
- * Check update data and return errors or continue to registration
+ * Check password data and return errors or continue to registration
  * ***************************** */
 validate.checkPasswordData = async (req, res, next) => {
   const { first_name, last_name, account_email } = req.body;
