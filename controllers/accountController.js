@@ -135,7 +135,6 @@ async function accountLogin(req, res) {
  *  Deliver account view
  * *************************************** */
 async function buildMenagement(req, res, next) {
-  console.log("Account Management");
   let nav = await utilities.getNav();
 
   const accountData = await accountModel.getAccountById(

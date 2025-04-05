@@ -76,7 +76,15 @@
           <input type="hidden" name="account_id"
             <% if(locals.account_id) { %> value="<%= locals.account_id %>"
             <% } %>>
-    
+            <input type="hidden" name="first_name"
+            <% if(locals.first_name) { %> value="<%= locals.first_name %>"
+            <% } %>>
+            <input type="hidden" name="last_name"
+            <% if(locals.last_name) { %> value="<%= locals.last_name %>"
+            <% } %>>
+            <input type="hidden" name="account_email"
+            <% if(locals.account_email) { %> value="<%= locals.account_email %>"
+            <% } %>>
           <button type="submit">Update Password</button>
         </form>
       </div>

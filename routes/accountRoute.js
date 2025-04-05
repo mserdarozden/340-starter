@@ -7,6 +7,7 @@ const regValidate = require('../utilities/account-validation')
 const loginValidate = require('../utilities/login-validation')
 
 
+
 // Route to build account by account view
 router.get("/login", utilities.handleErrors(accountController.buildLogin));
 
@@ -37,15 +38,15 @@ router.post(
   // Process the updating account
 router.post(
   "/update",
-  //regValidate.registationRules(),
-  //regValidate.checkRegData,
+  regValidate.updateRules(),
+  regValidate.checkUpdateData,
   utilities.handleErrors(accountController.updateAccount)
 )
   
 router.post(
   "/updatePassword",
-  //regValidate.registationRules(),
-  //regValidate.checkRegData,
+  regValidate.updatePasswordRules(),
+  regValidate.checkPasswordData,
   utilities.handleErrors(accountController.updatePassword)
 )
 
