@@ -10,7 +10,7 @@ invCont.buildByClassificationId = async function (req, res, next) {
   const classification_id = req.params.classificationId;
   const data = await invModel.getInventoryByClassificationId(classification_id);
 
-  const grid = await utilities.buildClassificationGrid(data);
+  const grid = await utilities.buildGrid(data);
   let nav = await utilities.getNav();
   const className = data[0].classification_name;
   res.render("./inventory/classification", {
@@ -39,7 +39,7 @@ invCont.buildByInventoryId = async function (req, res, next) {
 };
 
 /* ***************************
- *  Build menagement view
+ *  Build management view
  * ************************** */
 invCont.buildMenagement = async function (req, res, next) {
   const classification = await utilities.getClassificationDropdown();
@@ -328,6 +328,32 @@ invCont.deleteInventory = async function (req, res, next) {
     })
   }
 }
+
+/* ***************************
+ *  Build inventory by search view
+ * ************************** */
+invCont.searchInventory = async function (req, res) {
+  let nav = await utilities.getNav();
+  const { searchTerm } = req.query;
+
+  try {
+    const results = await invModel.searchInventory(searchTerm);
+    const grid = await utilities.buildGrid(results);
+
+    res.render("inventory/search-results", {
+      title: "Search Results for " + searchTerm,
+      nav,
+      grid,
+    });
+  } catch (error) {
+    req.flash("notice", "Error performing search. Please try again.");
+    res.status(500).render("inventory/search-results", {
+      title: "Search Results",
+      nav,
+      grid: null,
+    });
+  }
+};
 
 
 module.exports = invCont;

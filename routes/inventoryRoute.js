@@ -18,7 +18,7 @@ router.get(
   utilities.handleErrors(invController.buildByInventoryId)
 );
 
-// Route to build menagement view
+// Route to build management view
 router.get("/", utilities.checkAdminAccess, utilities.handleErrors(invController.buildMenagement));
 
 // Route to build add classification view
@@ -73,9 +73,9 @@ router.get(
 
 // Process the deleting classification data
 router.post("/delete/", 
-  // inventoryValidate.inventoryRules(),
-  // inventoryValidate.checkUpdateData,
   utilities.handleErrors(invController.deleteInventory)
 )
+
+router.get("/search", utilities.handleErrors(invController.searchInventory));
 
 module.exports = router;

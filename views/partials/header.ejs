@@ -2,6 +2,14 @@
   <span class="site-name">
     <a href="/" title="Return to home page">CSE Motors</a>
   </span>
+
+
+  <div class="search">
+    <form action="/inv/search" method="get">
+      <input type="text" name="searchTerm" placeholder="Search inventory..." required />
+      <button type="submit">Search</button>
+    </form>
+  </div>
   <div class="account">
     <% if (locals.loggedin) { %>
       <div class="account-links">
@@ -14,5 +22,6 @@
       </div>
     <% } %>
   </div>
+
 </header>
 

@@ -155,6 +155,23 @@ async function deleteInventory(inv_id) {
   }
 }
 
+/* ***************************
+ *  Search Inventory Item
+ * ************************** */
+async function searchInventory(searchTerm) {
+  try {
+    const result = await pool.query(
+      `SELECT * FROM inventory 
+       WHERE inv_make ILIKE $1 OR inv_model ILIKE $1 OR inv_description ILIKE $1 OR inv_color ILIKE $1 OR inv_year::TEXT ILIKE $1`,
+      [`%${searchTerm}%`]
+    );
+    return result.rows;
+  } catch (error) {
+    console.error("Error searching inventory:", error.message);
+    throw new Error("Unable to search inventory");
+  }
+}
+
 module.exports = {
   getClassifications,
   getInventoryByClassificationId,
@@ -162,5 +179,6 @@ module.exports = {
   addClassification,
   addInventoryItem,
   updateInventory,
-  deleteInventory
+  deleteInventory,
+  searchInventory
 };

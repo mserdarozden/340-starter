@@ -30,8 +30,8 @@ Util.getNav = async function (req, res, next) {
 /* **************************************
  * Build the classification view HTML
  * ************************************ */
-Util.buildClassificationGrid = async function (data) {
-  let grid;
+Util.buildGrid = async function (data) {
+  let grid = "";
   if (data.length > 0) {
     grid = '<ul id="inv-display">';
     data.forEach((vehicle) => {
@@ -118,7 +118,7 @@ Util.buildInventoryItemView = async function (vehicle) {
 };
 
 /* **************************************
- * Build the menagement view HTML
+ * Build the management view HTML
  * ************************************ */
 Util.buildMenagementView = async function () {
   let item = "";
